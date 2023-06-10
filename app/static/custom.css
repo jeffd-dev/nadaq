@@ -1,0 +1,29 @@
+header{
+    padding-bottom: 0.5em;;
+    border-bottom: solid 1px rgb(128, 128, 128); 
+}
+
+h1{font-variant: small-caps; margin: 0em 0em 0.5em 0em;}
+header nav{display: flex; justify-content: space-between; flex-wrap: wrap;}
+header nav > *{margin-bottom: 1em;}
+
+.home-message{text-align: center; margin: 1em; color: #bd491e; font-weight: bold;}
+
+.list{line-height: 1.5em; margin-top: 4.5em;}
+
+.action-list{list-style: square;}
+.action-list > * {margin-bottom: 1em;}
+
+.inventory-item {display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 3em;}
+.inventory-item .name{font-weight: bold;}
+.inventory-item .category{font-style: italic;}
+.inventory-item .group{background-color: rgb(128, 128, 128);}
+
+.group-item .name{font-variant: small-caps; font-size: 1.2rem;}
+.group-item .details{font-style: oblique;}
+
+form{display: flex; flex-direction: column; max-width: 300px;}
+input, select{margin-bottom: 1em;}
+
+button, input[type="submit"]{width: fit-content; align-self: center; margin-top: 1.5em;}
+label{padding-top: 1.5em;} 

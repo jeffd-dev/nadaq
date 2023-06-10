@@ -36,19 +36,17 @@ The general idea is to share things (household appliances, DIY tools...) but app
 - as simple way to create web inventory from CSV file (books, board-games) with basic authentication
 
 
-### Features planned
+### Features in this POC
 
-#### Version 1.0
-
-- create an account
 - create an user-group and add some users
 - create item and share it with an user-group
 - display available items for our user-groups
 - join a public group
 
 
-#### Later ...
+### Features planned
 
+- create an account
 - Item creation from CSV file
 - ActivityPub support (as plugin)
 - Item category
@@ -61,8 +59,21 @@ The general idea is to share things (household appliances, DIY tools...) but app
 
 ## Usage
 
-From now this project is only a Proof Of Concept to find useful functionnalities (see git branches).
+This alpha version comes with limited functionalities and **without any security**. This proof of concept is published to have a preview and help to find new functionnality or UX improvment.
 
+### Installation
+
+This Nadaq POC require Python 3.7+ and use SQLite database. 
+
+The only dependency, [Bottle web framework](https://bottlepy.org), is included into a file to make virtualenv optional.
+
+Then use the file `init_script.sql` to create a SQLite database inside the `db` folder.
+
+### Run
+
+On MacOS/Linux: ```cd app; sh python3 nadaq.py```
+
+The web application will be run at `localhost:8080`. You can login with: `demo/pwd` (but password is not checked).
 
 ## Contribute
 
@@ -89,7 +100,6 @@ This list is not exhaustive:
 - Language: [EN] 🇬🇧 recommended, [FR] 🇨🇵 is understood
 - Communication tool: *undefined*
 - **Code style**: Python: PEP8 - CSS: *undefined* - JS: *undefined*
-- Branch policy: `main` is the release branch, use Pull Request for contribution
 - Contact: Github or dev{@}zest-labs{.}fr (remove the `{}`)
 
 ## License
