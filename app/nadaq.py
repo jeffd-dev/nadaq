@@ -197,7 +197,7 @@ def error(error):
 def _get_logged_user():
     login = request.get_cookie(COOKIE_NAME, secret=COOKIE_SECRET)
     try:
-        return get_db_authenticated_user(login=login)
+        return get_db_authenticated_user(login=login, from_cookie=True)
     except NotFoundException:
         return None
 
