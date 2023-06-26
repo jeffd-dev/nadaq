@@ -3,6 +3,7 @@
 from pathlib import Path
 import sqlite3
 import re
+import bcrypt
 
 from user import User
 from item import Item
@@ -18,6 +19,14 @@ class NotFoundException(Exception):
 
 class DatabaseError(Exception):
     pass
+
+
+def get_hashed_password(password): #TODO: use this when you insert/update user password before storing to db
+    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
+
+def check_password(password, hash):
+    return bcrypt.checkpw(password.encode('utf-8'), hash.encode('utf-8'))
 
 
 def db_check_login(login:str, password:str):
