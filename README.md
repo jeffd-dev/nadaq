@@ -75,7 +75,7 @@ sqlite3 ./db/database < ./db/init_script.sql
 
 ### Run
 
-On MacOS/Linux: ```cd app; sh python3 nadaq.py```
+On MacOS/Linux: ```cd app; python3 nadaq.py```
 
 The web application will be run at `localhost:8080`. You can login with: `demo/pwd` (but password is not checked).
 
