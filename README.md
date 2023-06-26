@@ -69,6 +69,10 @@ The only dependency, [Bottle web framework](https://bottlepy.org), is included i
 
 Then use the file `init_script.sql` to create a SQLite database inside the `db` folder.
 
+```
+sqlite3 ./db/database < ./db/init_script.sql
+```
+
 ### Run
 
 On MacOS/Linux: ```cd app; sh python3 nadaq.py```
