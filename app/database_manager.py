@@ -3,6 +3,7 @@
 from pathlib import Path
 import sqlite3
 import re
+import bcrypt
 
 from user import User
 from item import Item
@@ -16,13 +17,24 @@ DATABASE_PATH = application_path / 'db' / 'database'
 class NotFoundException(Exception):
     pass
 
+class WrongPasswordException(Exception):
+    pass
+
 class DatabaseError(Exception):
     pass
 
 
+def get_hashed_password(password): #TODO: use this when you insert/update user password before storing to db
+    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
+
+def check_password(password, hash):
+    return bcrypt.checkpw(password.encode('utf-8'), hash.encode('utf-8'))
+
+
 def db_check_login(login:str, password:str):
     try:
-        get_db_authenticated_user(login=login)
+        get_db_authenticated_user(login=login, password=password)
         return True
     except NotFoundException:
         return False
@@ -50,11 +62,11 @@ def get_db_user(user_uid:str) -> User:
         location_info=db_user[3] or '',
     )
 
-def get_db_authenticated_user(login:str) -> User:
+def get_db_authenticated_user(login:str, password:str='', from_cookie:bool=False) -> User:
     with sqlite3.connect(DATABASE_PATH) as connection:
         cursor = connection.cursor()
         cursor.execute(
-            'SELECT uid, name, contact_informations, location_information, is_active FROM user WHERE login =:login', 
+            'SELECT uid, name, contact_informations, location_information, is_active, password FROM user WHERE login =:login', 
             {'login': login}
         )
         db_user = cursor.fetchone()
@@ -64,6 +76,9 @@ def get_db_authenticated_user(login:str) -> User:
 
     if bool(db_user[4]) == False:  # is_active field
         raise NotFoundException
+
+    if (not from_cookie) and (not check_password(password,db_user[5])): # password field)
+        raise WrongPasswordException
 
     return User(
         uid=db_user[0],

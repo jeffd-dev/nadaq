@@ -60,8 +60,8 @@ INSERT INTO "item" VALUES (1,'Hard-drive IDE to USB2 adapter','Doesn''t work for
 INSERT INTO "item" VALUES (2,'Nikkor 50mm F/1.8D','Nikon - no stabilization - With polariezd filter',1,NULL,'category:art',1,1);
 INSERT INTO "item" VALUES (3,'Graine Ipomee pourpre','Plante grimpante - 10 graines',1,NULL,'category:seed',1,2);
 INSERT INTO "user_group_relation" VALUES (2,2);
-INSERT INTO "user" VALUES (1,'demo','pwd','Demo user','demo@mail.eu','Strasbourg, rue des grandes arcades',NULL,1);
-INSERT INTO "user" VALUES (2,'besac guy','besac','Besac guy','besac@mail.eu','Besac city - Pont Battant',NULL,1);
+INSERT INTO "user" VALUES (1,'demo','$2b$12$yR4h8eisqWKiolnW2748HOIfg9A/58JKJ5S0d/.Bf.NyJf7R68NB.','Demo user','demo@mail.eu','Strasbourg, rue des grandes arcades',NULL,1);
+INSERT INTO "user" VALUES (2,'besac guy','$2b$12$6s9UtK7bLT.M0wYbPpTfkusbamobEac2021ek/aEaUA7A8KyqgSVe','Besac guy','besac@mail.eu','Besac city - Pont Battant',NULL,1);
 INSERT INTO "user" VALUES (3,'','','',NULL,NULL,NULL,NULL);
 INSERT INTO "user_group" VALUES (1,'Nadaq community','All users',NULL,1,NULL);
 INSERT INTO "user_group" VALUES (2,'Besac-city','People near Besac',NULL,1,NULL);
